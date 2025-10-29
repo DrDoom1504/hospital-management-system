@@ -15,7 +15,11 @@ import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
-import Staff from './pages/Staff';
+import MedicalHistory from './pages/MedicalHistory'
+import Profile from './pages/Profile';
+import LabOrders from './pages/LabOrders';
+import PatientBilling from './pages/PatientBilling';
+import Messages from './pages/Messages';
 
 function PrivateRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -40,22 +44,38 @@ function App() {
           </Route>
 
           <Route path="/app" element={<PrivateRoute><AppLayout /></PrivateRoute>}>
-            <Route
-              path="dashboard"
-              element={<RoleRoute allowedRoles={["patient"]}><DashboardPatient /></RoleRoute>}
-            />
-            <Route
-              path="dashboard-doctor"
-              element={<RoleRoute allowedRoles={["doctor","staff"]}><DashboardDoctor /></RoleRoute>}
-            />
-            <Route path="patients" element={<Patients />} />
-            <Route path="appointments" element={<Appointments />} />
-            <Route path="staff" element={<Staff />} />
-            <Route path="medicines" element={<Medicines />} />
-            <Route path="billing" element={<Billing />} />
-            <Route path="reports" element={<Reports />} />
-            <Route path="settings" element={<Settings />} />
-          </Route>
+            {/* Patient Routes */}
+            <Route path="dashboard" element={
+              <RoleRoute allowedRoles={["patient"]}><DashboardPatient /></RoleRoute>
+            } />
+            <Route path="my-appointments" element={
+              <RoleRoute allowedRoles={["patient"]}><Appointments /></RoleRoute>
+            } />
+            <Route path="medical-history" element={
+              <RoleRoute allowedRoles={["patient"]}><MedicalHistory /></RoleRoute>
+            } />
+            <Route path="my-bills" element={
+              <RoleRoute allowedRoles={["patient"]}><PatientBilling /></RoleRoute>
+            } />
+            <Route path="profile" element={
+              <RoleRoute allowedRoles={["patient"]}><Profile /></RoleRoute>
+            } />
+
+            {/* Doctor Routes */}
+            <Route path="dashboard-doctor" element={
+              <RoleRoute allowedRoles={["doctor"]}><DashboardDoctor /></RoleRoute>
+            } />
+            <Route path="patients" element={
+              <RoleRoute allowedRoles={["doctor", "staff"]}><Patients /></RoleRoute>
+            } />
+            <Route path="lab-orders" element={
+              <RoleRoute allowedRoles={["doctor"]}><LabOrders /></RoleRoute>
+            } />
+            <Route path="messages" element={
+              <RoleRoute allowedRoles={["doctor"]}><Messages /></RoleRoute>
+            } />
+
+            </Route>
         </Routes>
       </BrowserRouter>
     </AuthProvider>
