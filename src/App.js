@@ -4,21 +4,21 @@ import './App.css';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import AppLayout from './layouts/AppLayout';
 import PublicLayout from './layouts/PublicLayout';
-import Appointments from './pages/Appointments';
+import Appointments from './pages/Patient/Appointments';
 import Billing from './pages/Billing';
 import DashboardDoctor from './pages/dashboard/DashboardDoctor';
 import DashboardPatient from './pages/dashboard/DashboardPatient';
 import Medicines from './pages/Medicines';
-import Patients from './pages/Patients';
+import Patients from './pages/Doctor/Patients';
 import Landing from './pages/public/Landing';
 import Login from './pages/public/Login';
 import Register from './pages/public/Register';
 import Reports from './pages/Reports';
 import Settings from './pages/Settings';
-import MedicalHistory from './pages/MedicalHistory'
-import Profile from './pages/Profile';
+import MedicalHistory from './pages/Patient/MedicalHistory'
+import Profile from './pages/Patient/Profile';
 import LabOrders from './pages/LabOrders';
-import PatientBilling from './pages/PatientBilling';
+import PatientBilling from './pages/Patient/PatientBilling';
 import Messages from './pages/Messages';
 
 function PrivateRoute({ children }) {
