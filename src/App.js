@@ -17,9 +17,9 @@ import Reports from './pages/Reports';
 import Settings from './pages/Settings';
 import MedicalHistory from './pages/Patient/MedicalHistory'
 import Profile from './pages/Patient/Profile';
-import LabOrders from './pages/LabOrders';
+import LabOrders from './pages/Doctor/LabOrders';
 import PatientBilling from './pages/Patient/PatientBilling';
-import Messages from './pages/Messages';
+import Messages from './pages/Doctor/Messages';
 
 function PrivateRoute({ children }) {
   const { isAuthenticated } = useAuth();
